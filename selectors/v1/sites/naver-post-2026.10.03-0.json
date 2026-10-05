@@ -1,0 +1,25 @@
+{
+  "site": "naver-post",
+  "version": "2026.10.03-0",
+  "verified": false,
+  "selectors": {
+    "container": { "css": [".se-main-container", "#viewTypeSelector", ".post_ct", "#postViewArea", ".se_component_wrap"] },
+    "title": { "css": [".se-title-text", ".se-documentTitle", ".se_title", "h3.se_textarea", ".tit_h3"] },
+    "component": { "css": [".se-component"] },
+    "paragraph": { "css": [".se-text-paragraph"] },
+    "sectionTitle": { "css": [".se-section-sectionTitle", ".se-sectionTitle"] },
+    "quote": { "css": [".se-quotation", ".se-section-quotation"] },
+    "table": { "css": [".se-table", "table"] },
+    "image": { "css": [".se-image-resource", ".se-module-image img", ".se_mediaImage"] },
+    "video": { "css": [".se-video", ".se-oembed", ".se-component.se-video"] },
+    "caption": { "css": [".se-caption", ".se_textarea.caption"] },
+    "tags": { "css": [".post_tag a", ".wrap_tag a", "a[class*='tag']"] },
+    "blogName": { "css": [".blog_name", ".nick", "[class*='blogger_name']", ".blog_author"] },
+    "date": { "css": [".se_publishDate", ".blog_date", "[class*='publishDate']", "[class*='date']"] }
+  },
+  "texts": {
+    "private": ["비공개", "접근 권한이 없"],
+    "deleted": ["삭제되었거나", "존재하지 않는"],
+    "blocked": ["자동입력 방지", "비정상적인 접근", "보안 문자"]
+  }
+}

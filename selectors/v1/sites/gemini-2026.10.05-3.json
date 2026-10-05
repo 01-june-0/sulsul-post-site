@@ -1,0 +1,218 @@
+{
+  "site": "gemini",
+  "version": "2026.10.05-3",
+  "verified": true,
+  "urls": {
+    "newChat": "https://gemini.google.com/app"
+  },
+  "selectors": {
+    "input": {
+      "css": [
+        "rich-textarea .ql-editor[contenteditable='true']",
+        "div.ql-editor[contenteditable='true']",
+        "div[contenteditable='true'][role='textbox']"
+      ],
+      "visible": true,
+      "required": true,
+      "note": "Quill-based contenteditable (hypothesis, verify in S5)"
+    },
+    "send": {
+      "css": [
+        "button.send-button",
+        "button[aria-label='보내기']",
+        "button[aria-label='메시지 보내기']",
+        "button[aria-label*='메시지 보내기']",
+        "button[aria-label='Send message']",
+        "button[aria-label*='Send message']"
+      ],
+      "visible": true,
+      "note": "exact labels only: '공유 및 내보내기' (share and export) contains '보내기' (2026-10-05)"
+    },
+    "stop": {
+      "css": [
+        "button[aria-label*='중지']",
+        "button[aria-label*='Stop response']",
+        "button[aria-label*='Stop']"
+      ],
+      "visible": true
+    },
+    "userMessage": {
+      "css": [
+        "user-query",
+        ".user-query-container"
+      ]
+    },
+    "response": {
+      "css": [
+        "model-response"
+      ],
+      "note": "one element per assistant turn"
+    },
+    "responseContent": {
+      "css": [
+        "message-content",
+        ".markdown"
+      ]
+    },
+    "loginButton": {
+      "css": [
+        "a[href*='accounts.google.com/ServiceLogin']",
+        "a[href*='accounts.google.com/signin']"
+      ],
+      "visible": true
+    },
+    "loginLabel": {
+      "css": [
+        "a",
+        "button"
+      ],
+      "attrText": [
+        "로그인",
+        "Sign in"
+      ],
+      "text": [
+        "로그인",
+        "Sign in"
+      ],
+      "visible": true
+    },
+    "signedOut": {
+      "css": [
+        "button",
+        "[role='button']"
+      ],
+      "exactText": [
+        "로그인",
+        "Sign in"
+      ],
+      "visible": true,
+      "note": "Signed-out but usable chat (2026-10-05, InPrivate): buttons whose whole text is 로그인. A chat title that only contains the word never matches."
+    },
+    "imageTool": {
+      "text": [
+        "이미지 만들기",
+        "Create image",
+        "Create images"
+      ],
+      "visible": true
+    },
+    "toolsButton": {
+      "attrText": [
+        "도구",
+        "Tools"
+      ],
+      "visible": true
+    },
+    "canvas": {
+      "css": [
+        "immersive-panel",
+        "immersive-editor",
+        "code-immersive-panel"
+      ]
+    },
+    "errorBanner": {
+      "css": [
+        "[role='alert']",
+        "snack-bar-container",
+        ".mat-mdc-snack-bar-container"
+      ],
+      "visible": true
+    },
+    "challenge": {
+      "css": [
+        "iframe[src*='challenges.cloudflare.com']",
+        "iframe[src*='recaptcha']",
+        "iframe[title*='challenge']",
+        "#challenge-form"
+      ],
+      "visible": true,
+      "note": "human-verification widgets: stop and hand over to the user, never solve"
+    },
+    "composer": {
+      "css": [
+        "input-area-v2",
+        "input-container",
+        ".input-area-container",
+        "fieldset"
+      ],
+      "note": "composer around rich-textarea; attachment previews sit inside input-area-v2 (S5 2026-10-03)"
+    },
+    "attachment": {
+      "css": [
+        "uploader-file-preview",
+        "gem-media-attachment"
+      ],
+      "firstMatch": true,
+      "note": "one preview chip per attached file (S5 2026-10-03); paste one file per event — a paste carrying several files is ignored"
+    },
+    "fileInput": {
+      "css": [
+        "input[type='file']"
+      ],
+      "note": "none on the page in 2026-10 (S5); kept as a fallback after paste"
+    },
+    "attachmentBusy": {
+      "css": [
+        "[role='progressbar']",
+        "mat-progress-spinner",
+        "mat-spinner",
+        "[aria-busy='true']"
+      ],
+      "visible": true,
+      "note": "upload in progress (hypothesis)"
+    },
+    "temporaryToggle": {
+      "css": [
+        "gem-icon-button.temp-chat-button button",
+        "button[aria-label='임시 채팅']",
+        "button[aria-label='Temporary chat']"
+      ],
+      "visible": true,
+      "note": "'임시 채팅' icon button next to the new chat (2026-10-05); Gemini has no address for a temporary chat, it is switched on in the page"
+    },
+    "temporaryOn": {
+      "css": [
+        ".temp-chat-button.temp-chat-on"
+      ],
+      "note": "the button's wrapper gem-icon-button goes from class temp-chat-entry to temp-chat-on once it is on (2026-10-05)"
+    }
+  },
+  "texts": {
+    "rateLimit": [
+      "한도에 도달",
+      "사용량 한도",
+      "한도를 초과",
+      "limit reached",
+      "quota",
+      "Try again later",
+      "나중에 다시 시도"
+    ],
+    "blocked": [
+      "unusual traffic",
+      "비정상적인 트래픽",
+      "로봇이 아닙니다",
+      "I'm not a robot"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "attrText": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "note": "never click share/delete/publish controls on AI sites"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "site": "tistory",
+  "version": "2026.10.04-2",
+  "verified": false,
+  "selectors": {
+    "title": {
+      "css": [
+        "textarea#post-title-inp",
+        "#post-title-inp",
+        "textarea[placeholder*='제목']",
+        "input[placeholder*='제목']"
+      ],
+      "firstMatch": true,
+      "required": true,
+      "note": "title field textarea#post-title-inp, placeholder 제목을 입력하세요 (measured 2026-10-04)"
+    },
+    "editorFrame": {
+      "css": [
+        "iframe#editor-tistory_ifr",
+        "iframe[id$='_ifr']",
+        ".tox-edit-area iframe",
+        ".mce-edit-area iframe"
+      ],
+      "firstMatch": true,
+      "note": "TinyMCE iframe#editor-tistory_ifr (about:blank); its body#tinymce.mce-content-body is the post (measured 2026-10-04)"
+    },
+    "toolbar": {
+      "css": [
+        ".tox-toolbar",
+        ".tox-toolbar__primary",
+        ".mce-toolbar-grp",
+        "#mceu_0"
+      ],
+      "note": "frame scoring"
+    },
+    "uploading": {
+      "css": [
+        ".tox-throbber",
+        "[class*='uploading']"
+      ],
+      "visible": true
+    },
+    "dialog": {
+      "css": [
+        "[role='dialog']",
+        "[role='alertdialog']",
+        ".layer_popup",
+        ".tox-dialog"
+      ],
+      "visible": true
+    },
+    "publishLayer": {
+      "css": [
+        ".layer_publish",
+        "[class*='publish-layer']",
+        "[class*='layer-publish']"
+      ],
+      "visible": true
+    },
+    "loginForm": {
+      "css": [
+        "form#authForm",
+        "#loginId",
+        "input[name='loginKey']"
+      ]
+    },
+    "tagInput": {
+      "css": [
+        "input#tagText",
+        "input[name='tagText']"
+      ],
+      "note": "Tistory 태그 칸 input#tagText ('태그입력'); value + Enter makes a tag (measured 2026-10-04)"
+    },
+    "tagItem": {
+      "css": [
+        ".editor_tag a",
+        "#tagText ~ a"
+      ],
+      "firstMatch": true,
+      "note": "a committed tag, text '#태그' (measured 2026-10-04)"
+    }
+  },
+  "texts": {
+    "restoreDialog": [
+      "작성 중인 글",
+      "저장된 글이 있",
+      "이어서 작성"
+    ],
+    "login": [
+      "로그인이 필요",
+      "카카오계정으로 로그인"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "완료",
+        "발행",
+        "공개 발행",
+        "비공개 저장",
+        "공개",
+        "저장"
+      ],
+      "note": "never click publish/save buttons (rule D9)"
+    },
+    {
+      "attrText": [
+        "발행",
+        "publish"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "site": "claude",
+  "version": "2026.10.04-2",
+  "verified": true,
+  "urls": {
+    "newChat": "https://claude.ai/new",
+    "temporary": "https://claude.ai/new?incognito"
+  },
+  "selectors": {
+    "input": {
+      "css": [
+        "div.ProseMirror[contenteditable='true']",
+        ".tiptap[contenteditable='true']",
+        "[contenteditable='true'][aria-label*='Claude']",
+        "fieldset [contenteditable='true']"
+      ],
+      "visible": true,
+      "required": true,
+      "note": "TipTap/ProseMirror composer, aria-label 'Claude에게 프롬프트를 입력하세요.' (AX, 2026-10-04). A synthetic paste of the prompt became a 'pasted text' attachment, so fillWays leaves paste out; insertText typed all 3,137 characters"
+    },
+    "send": {
+      "css": [
+        "button[aria-label='메시지 보내기']",
+        "button[aria-label='Send message']",
+        "button[aria-label*='메시지 보내기']",
+        "button[aria-label*='Send message']"
+      ],
+      "visible": true,
+      "note": "'메시지 보내기' (matched 2026-10-04; it stays visible while an answer is being written)"
+    },
+    "stop": {
+      "css": [
+        "button[aria-label='응답 중지']",
+        "button[aria-label='Stop response']",
+        "button[aria-label*='응답 중지']",
+        "button[aria-label*='Stop response']"
+      ],
+      "visible": true,
+      "note": "'응답 중지' shows while an answer is being written (AX, 2026-10-04, a 70 s draft)"
+    },
+    "idle": {
+      "css": [
+        "button[aria-label='음성 모드 시작']",
+        "button[aria-label='Start voice mode']",
+        "button[aria-label='메시지 보내기']",
+        "button[aria-label='Send message']"
+      ],
+      "visible": true,
+      "note": "'음성 모드 시작' while empty, '메시지 보내기' once typed and after an answer; the send button stays during answering, so '응답 중지' is what marks it (2026-10-04)"
+    },
+    "userMessage": {
+      "css": [
+        "[data-testid='user-message']",
+        "[data-user-message-bubble]"
+      ],
+      "firstMatch": true,
+      "note": "[data-testid='user-message'] matched (2026-10-04)"
+    },
+    "response": {
+      "css": [
+        "[data-is-streaming]",
+        "div.font-claude-response",
+        "div.font-claude-message"
+      ],
+      "firstMatch": true,
+      "note": "[data-is-streaming] matched the assistant message wrapper (2026-10-04)"
+    },
+    "responseContent": {
+      "css": [
+        ".standard-markdown",
+        ".progressive-markdown",
+        ".font-claude-response",
+        ".font-claude-message"
+      ],
+      "firstMatch": true,
+      "note": ".standard-markdown matched; a JSON answer comes in a code block inside it (2026-10-04)"
+    },
+    "loginButton": {
+      "css": [
+        "input[type='email']",
+        "button[data-testid='login-with-google']",
+        "a[href^='/login']"
+      ],
+      "visible": true
+    },
+    "loginLabel": {
+      "css": [
+        "a",
+        "button"
+      ],
+      "text": [
+        "로그인",
+        "Log in",
+        "Google로 계속하기",
+        "Continue with Google"
+      ],
+      "attrText": [
+        "로그인",
+        "Log in"
+      ],
+      "visible": true
+    },
+    "errorBanner": {
+      "css": [
+        "[role='alert']",
+        "[data-testid*='error']"
+      ],
+      "visible": true
+    },
+    "challenge": {
+      "css": [
+        "iframe[src*='challenges.cloudflare.com']",
+        "iframe[src*='recaptcha']",
+        "iframe[title*='challenge']",
+        "#challenge-form"
+      ],
+      "visible": true,
+      "note": "human-verification widgets: stop and hand over to the user, never solve"
+    },
+    "composer": {
+      "css": [
+        "fieldset",
+        "[data-testid='chat-input']",
+        "form"
+      ],
+      "note": "fieldset matched (2026-10-04)"
+    },
+    "fileInput": {
+      "css": [
+        "input[type='file'][data-testid='file-upload']",
+        "input[type='file']"
+      ],
+      "note": "input[type='file'][data-testid='file-upload'] matched; three photos attached for a real photo post (2026-10-04)"
+    },
+    "attachment": {
+      "css": [
+        "[data-testid='file-thumbnail']",
+        "[data-testid*='attachment']"
+      ],
+      "note": "attached file previews in the composer. Real sends 2026-10-05: 3 photos (photo draft) and 2 (사진 넣기) were attached and read by Claude; which of these selectors matched was not logged"
+    },
+    "attachmentBusy": {
+      "css": [
+        "[role='progressbar']",
+        "[aria-busy='true']"
+      ],
+      "visible": true,
+      "note": "upload in progress (hypothesis)"
+    },
+    "canvas": {
+      "css": [
+        "[data-testid='artifact-view']",
+        "[aria-label*='아티팩트']",
+        "[aria-label*='Artifact']"
+      ],
+      "visible": true,
+      "note": "an answer that went into an artifact panel instead of the chat (hypothesis)"
+    }
+  },
+  "texts": {
+    "rateLimit": [
+      "사용량 한도",
+      "한도에 도달",
+      "메시지 한도",
+      "usage limit",
+      "You've reached",
+      "out of free messages",
+      "rate limit"
+    ],
+    "blocked": [
+      "Verify you are human",
+      "사람인지 확인",
+      "unusual activity",
+      "비정상적인 활동"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "attrText": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "note": "never click share/delete/publish controls on AI sites"
+    }
+  ],
+  "fillWays": [
+    "insertText",
+    "lines"
+  ]
+}

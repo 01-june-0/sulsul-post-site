@@ -1,0 +1,156 @@
+{
+  "site": "naver-cafe",
+  "version": "2026.10.04-2",
+  "verified": false,
+  "selectors": {
+    "title": {
+      "css": [
+        ".se-documentTitle .se-text-paragraph",
+        "textarea.textarea_input",
+        "textarea[placeholder*='제목']",
+        "input[placeholder*='제목']"
+      ],
+      "firstMatch": true,
+      "required": true,
+      "note": "Naver Cafe 제목: textarea.textarea_input outside the editor, page top document (measured 2026-10-04 on the new write screen)"
+    },
+    "bodyText": {
+      "css": [
+        ".se-component.se-text .se-text-paragraph",
+        ".se-section-text .se-text-paragraph"
+      ],
+      "note": "paragraphs of text blocks — where new content is anchored (S1/S3 2026-10-03)"
+    },
+    "bodyAnyText": {
+      "css": [
+        ".se-component:not(.se-documentTitle) .se-text-paragraph"
+      ],
+      "note": "every body paragraph incl. table boxes, quotes and captions — for counting characters (S1/S3 2026-10-03)"
+    },
+    "component": {
+      "css": [
+        ".se-component"
+      ]
+    },
+    "imageComponent": {
+      "css": [
+        ".se-component.se-image",
+        ".se-component.se-imageStrip",
+        ".se-component.se-imageGroup"
+      ]
+    },
+    "image": {
+      "css": [
+        ".se-component.se-image img",
+        ".se-image-resource"
+      ]
+    },
+    "toolbar": {
+      "css": [
+        ".se-toolbar",
+        "[class*='se-toolbar']"
+      ]
+    },
+    "contentArea": {
+      "css": [
+        ".se-content",
+        ".se-canvas",
+        "[contenteditable='true']"
+      ]
+    },
+    "inputBuffer": {
+      "css": [
+        "iframe[id^='input_buffer']",
+        "iframe[title*='스마트 에디터']"
+      ],
+      "firstMatch": true,
+      "note": "hidden 1px iframe that follows the caret and receives all typing/paste (S1/S3 2026-10-03); the canvas itself is not contenteditable"
+    },
+    "placeholder": {
+      "css": [
+        ".se-placeholder",
+        "[class*='placeholder']"
+      ]
+    },
+    "uploading": {
+      "css": [
+        ".se-image-uploading",
+        "[class*='se-uploading']",
+        "[class*='upload_progress']"
+      ],
+      "visible": true
+    },
+    "dialog": {
+      "css": [
+        ".se-popup",
+        ".se-popup-alert",
+        "[role='dialog']",
+        "[role='alertdialog']"
+      ],
+      "visible": true
+    },
+    "publishLayer": {
+      "css": [
+        "[class*='publish_layer']",
+        "[class*='layer_publish']"
+      ],
+      "visible": true
+    },
+    "loginForm": {
+      "css": [
+        "#id[name='id']",
+        "form#frmNIDLogin"
+      ]
+    },
+    "tagInput": {
+      "css": [
+        "input.tag_input",
+        ".WritingTag input[type='text']"
+      ],
+      "firstMatch": true,
+      "note": "Naver Cafe 태그 칸 input.tag_input ('태그를 입력해주세요 (최대 10개)'); value + Enter makes a tag (measured 2026-10-04)"
+    },
+    "tagItem": {
+      "css": [
+        ".WritingTag em.tag_text",
+        ".WritingTag .tag_text"
+      ],
+      "firstMatch": true,
+      "note": "a committed tag, text '#태그' (measured 2026-10-04)"
+    }
+  },
+  "texts": {
+    "restoreDialog": [
+      "작성 중인 글",
+      "작성중인 글",
+      "이어서 작성",
+      "임시저장된 글",
+      "임시 저장된 글",
+      "임시등록"
+    ],
+    "login": [
+      "로그인이 필요",
+      "NAVER 로그인"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "발행",
+        "공유",
+        "게시",
+        "등록",
+        "등록하기",
+        "완료"
+      ],
+      "note": "never click register/publish buttons (rule D9)"
+    },
+    {
+      "attrText": [
+        "발행",
+        "등록",
+        "publish"
+      ]
+    }
+  ]
+}

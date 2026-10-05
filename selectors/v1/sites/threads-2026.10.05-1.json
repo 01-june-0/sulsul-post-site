@@ -1,0 +1,108 @@
+{
+  "site": "threads",
+  "version": "2026.10.05-1",
+  "verified": false,
+  "urls": {
+    "home": "https://www.threads.com/"
+  },
+  "selectors": {
+    "createButton": {
+      "css": [
+        "svg[aria-label='새로운 스레드']",
+        "svg[aria-label='New thread']",
+        "svg[aria-label='Create']",
+        "svg[aria-label='만들기']"
+      ],
+      "note": "'새로운 스레드' (div[role=button] around this icon) opens the composer dialog (2026-10-04); English and nav-style labels kept as fallbacks; only a visible one is pressed",
+      "visible": true
+    },
+    "dialog": {
+      "css": [
+        "div[role='dialog']"
+      ],
+      "visible": true
+    },
+    "editor": {
+      "css": [
+        "div[role='dialog'] div[role='textbox'][data-lexical-editor='true']",
+        "div[role='dialog'] div[contenteditable='true']"
+      ],
+      "visible": true,
+      "note": "Lexical editor per post, aria-placeholder '새로운 소식을 공유해보세요.' (2026-10-04)"
+    },
+    "addPost": {
+      "css": [
+        "div[role='dialog'] [role='button']",
+        "div[role='dialog'] button"
+      ],
+      "text": [
+        "스레드에 추가",
+        "Add to thread",
+        "Add to Thread"
+      ],
+      "visible": true,
+      "note": "adds the next post of the series (2026-10-04)"
+    },
+    "fileInput": {
+      "css": [
+        "div[role='dialog'] input[type='file']"
+      ],
+      "note": "multiple, accept image/avif,image/jpeg,image/png,image/webp… (2026-10-04)"
+    },
+    "loginForm": {
+      "css": [
+        "input[autocomplete='username']",
+        "input[name='username']"
+      ]
+    },
+    "cancel": {
+      "css": [
+        "div[role='dialog'] [role='button']"
+      ],
+      "text": [
+        "취소",
+        "Cancel"
+      ],
+      "visible": true
+    }
+  },
+  "texts": {
+    "login": [
+      "로그인",
+      "Log in"
+    ],
+    "dismiss": [
+      "나중에 하기",
+      "Not Now",
+      "Not now"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "게시",
+        "Post"
+      ],
+      "attrText": [
+        "게시",
+        "Post"
+      ],
+      "note": "never post: the user reviews and posts ('게시물 옵션' is caught too, and is never needed)"
+    },
+    {
+      "text": [
+        "삭제",
+        "Discard",
+        "저장 안 함",
+        "Don't save"
+      ],
+      "attrText": [
+        "삭제",
+        "Discard",
+        "저장 안 함",
+        "Don't save"
+      ],
+      "note": "never discard a post or a draft: the user's work stays (rule 4)"
+    }
+  ]
+}

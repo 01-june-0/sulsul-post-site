@@ -1,0 +1,175 @@
+{
+  "site": "instagram",
+  "version": "2026.10.05-1",
+  "verified": false,
+  "urls": {
+    "home": "https://www.instagram.com/"
+  },
+  "selectors": {
+    "createButton": {
+      "css": [
+        "svg[aria-label='새로운 게시물']",
+        "svg[aria-label='New post']"
+      ],
+      "note": "sidebar '새로운 게시물' link (a[role=link]) opens the '새 게시물 만들기' dialog directly, or on a professional account the createMenuPost menu (2026-10-04); only a visible one is pressed",
+      "visible": true
+    },
+    "createMenuPost": {
+      "css": [
+        "svg[aria-label='게시물']",
+        "svg[aria-label='Post']"
+      ],
+      "visible": true,
+      "note": "professional accounts: '새로운 게시물' opens a menu (게시물 · 라이브 방송 · 광고) instead of the dialog; its 게시물 item (a[role=link] with this svg) opens it (2026-10-04)"
+    },
+    "dialog": {
+      "css": [
+        "div[role='dialog']"
+      ],
+      "visible": true
+    },
+    "fileInput": {
+      "css": [
+        "input[type='file'][accept*='image']",
+        "input[type='file']"
+      ],
+      "note": "searched only inside the create-post dialog (a profile-photo or message input elsewhere must never get the pictures); hidden multiple input behind '컴퓨터에서 선택', accept image/avif,image/jpeg,image/png,… (2026-10-04)"
+    },
+    "nextButton": {
+      "css": [
+        "div[role='dialog'] [role='button']",
+        "div[role='dialog'] button"
+      ],
+      "text": [
+        "다음",
+        "Next"
+      ],
+      "visible": true,
+      "note": "the dialog's own 다음 (div[role=button]); the home page behind has story '다음' buttons too, so only the dialog is searched (2026-10-04)"
+    },
+    "caption": {
+      "css": [
+        "div[role='dialog'] div[role='textbox'][data-lexical-editor='true']",
+        "div[role='dialog'] div[contenteditable='true'][aria-label*='캡션']",
+        "div[role='dialog'] div[contenteditable='true']"
+      ],
+      "visible": true,
+      "note": "Lexical editor 'aria-label=캡션 추가...' on the last step, counter 'N/2200' (2026-10-04)"
+    },
+    "loginForm": {
+      "css": [
+        "input[name='username']",
+        "form#loginForm"
+      ]
+    },
+    "cropButton": {
+      "css": [
+        "div[role='dialog'] [role='button']",
+        "div[role='dialog'] button",
+        "div[role='dialog'] svg[aria-label]"
+      ],
+      "attrText": [
+        "자르기 선택",
+        "Select crop"
+      ],
+      "text": [
+        "자르기 선택",
+        "Select crop"
+      ],
+      "visible": true,
+      "note": "several controls carry the label; the second (2026-10-04) opens the ratio menu (원본, 1:1, 4:5, 16:9)"
+    },
+    "cropOption": {
+      "css": [
+        "div[role='dialog'] [role='button']",
+        "div[role='dialog'] button",
+        "div[role='dialog'] [role='menuitem']",
+        "div[role='dialog'] [role='radio']",
+        "div[role='dialog'] [role='option']"
+      ],
+      "visible": true,
+      "note": "ratio menu items; their text starts with '원본', '1:1', '4:5', '16:9' (2026-10-04)"
+    }
+  },
+  "texts": {
+    "login": [
+      "로그인",
+      "Log in"
+    ],
+    "crop45": [
+      "4:5"
+    ],
+    "dismiss": [
+      "나중에 하기",
+      "Not Now",
+      "Not now"
+    ],
+    "composerHeadings": [
+      "새 게시물 만들기",
+      "자르기",
+      "편집",
+      "Create new post",
+      "Crop",
+      "Edit"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "공유하기",
+        "Share"
+      ],
+      "attrText": [
+        "공유하기",
+        "Share"
+      ],
+      "note": "never share the post: the user reviews and shares"
+    },
+    {
+      "text": [
+        "라이브 방송",
+        "Live video"
+      ],
+      "attrText": [
+        "라이브 방송",
+        "Live video"
+      ],
+      "note": "professional accounts' create menu: never start a live video"
+    },
+    {
+      "text": [
+        "광고"
+      ],
+      "attrText": [
+        "광고"
+      ],
+      "note": "professional accounts' create menu: never start an ad (English 'Ad' is too short to match safely; 게시물 is picked by its own icon)"
+    },
+    {
+      "text": [
+        "공유",
+        "Share"
+      ],
+      "attrText": [
+        "공유",
+        "Share"
+      ],
+      "note": "any share control, also if '공유하기' is renamed"
+    },
+    {
+      "text": [
+        "삭제",
+        "Discard",
+        "저장 안 함",
+        "Don't save"
+      ],
+      "attrText": [
+        "삭제",
+        "Discard",
+        "저장 안 함",
+        "Don't save"
+      ],
+      "note": "never discard a post: the user's work stays (rule 4), whatever word lists a remote file brings"
+    }
+  ]
+}

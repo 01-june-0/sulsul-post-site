@@ -1,0 +1,206 @@
+{
+  "site": "chatgpt",
+  "version": "2026.10.05-1",
+  "verified": true,
+  "urls": {
+    "newChat": "https://chatgpt.com/",
+    "temporary": "https://chatgpt.com/?temporary-chat=true"
+  },
+  "selectors": {
+    "input": {
+      "css": [
+        "#prompt-textarea[contenteditable='true']",
+        "div#prompt-textarea",
+        "textarea#prompt-textarea",
+        "div.ProseMirror[contenteditable='true']"
+      ],
+      "visible": true,
+      "required": true,
+      "note": "ProseMirror contenteditable (hypothesis, verify in S6)"
+    },
+    "send": {
+      "css": [
+        "button[aria-label='보내기']",
+        "button[aria-label='Send']",
+        "button[data-testid='send-button']",
+        "#composer-submit-button",
+        "button[aria-label*='프롬프트 보내기']",
+        "button[aria-label*='Send prompt']"
+      ],
+      "visible": true,
+      "note": "'보내기' observed 2026-10-03 (Edge 154)"
+    },
+    "stop": {
+      "css": [
+        "button[aria-label='중지']",
+        "button[aria-label='Stop']",
+        "button[data-testid='stop-button']",
+        "button[aria-label*='스트리밍 중지']",
+        "button[aria-label*='Stop streaming']",
+        "button[aria-label*='응답 중지']",
+        "button[aria-label*='Stop response']",
+        "button[aria-label*='생성 중지']"
+      ],
+      "visible": true,
+      "note": "'중지' observed while generating 2026-10-03 (Edge 154)"
+    },
+    "idle": {
+      "css": [
+        "button[aria-label='음성 대화 시작']",
+        "button[aria-label='Start voice mode']",
+        "button[aria-label='보내기']",
+        "button[aria-label='Send']",
+        "button[data-testid='send-button']"
+      ],
+      "visible": true,
+      "note": "composer controls shown only when ChatGPT is not answering (voice-mode button when empty, send when typed); both disappear while generating — observed 2026-10-03"
+    },
+    "userMessage": {
+      "css": [
+        "[data-user-message-bubble='true']",
+        "[data-chatgpt-search-unit-key$=':user']",
+        "[data-message-author-role='user']"
+      ],
+      "firstMatch": true,
+      "note": "observed 2026-10-03 in Edge 154 (new UI without data-message-author-role); old selector kept as the last fallback"
+    },
+    "response": {
+      "css": [
+        "[data-chatgpt-search-message-ids]:not([data-chatgpt-search-unit-key$=':user'])",
+        "[data-chatgpt-search-unit-key$=':assistant']",
+        "[data-content-search-unit-key$=':assistant']",
+        "[data-message-author-role='assistant']"
+      ],
+      "firstMatch": true,
+      "note": "observed 2026-10-03 (Edge 154): text answers carry both search-unit-key ':assistant' and search-message-ids; image-only answers carry only search-message-ids (gallery: data-testid=generated-image-gallery, img alt '생성된 이미지 1', blob: src). 2026-10-04: in a long chat only the latest 8 turns keep these keys, so the count stops at 8 — completion also takes a changed last answer as new. Old data-message-author-role kept as the last fallback"
+    },
+    "responseContent": {
+      "css": [
+        "[data-markdown-text-style='assistant-message']",
+        "[class*='MarkdownRoot-']",
+        ".markdown"
+      ],
+      "firstMatch": true,
+      "noFallback": true,
+      "note": "observed 2026-10-03 in Edge 154 (new UI without data-message-author-role); old selector kept as the last fallback"
+    },
+    "loginButton": {
+      "css": [
+        "button[data-testid='login-button']",
+        "a[href*='/auth/login']"
+      ],
+      "visible": true
+    },
+    "loginLabel": {
+      "css": [
+        "a",
+        "button"
+      ],
+      "attrText": [
+        "로그인",
+        "Log in"
+      ],
+      "text": [
+        "로그인",
+        "Log in"
+      ],
+      "visible": true
+    },
+    "signedOut": {
+      "css": [
+        "button[data-testid='login-button']"
+      ],
+      "visible": true,
+      "note": "Signed-out page with a composer: its own log-in button."
+    },
+    "imageTool": {
+      "text": [
+        "이미지 만들기",
+        "Create image"
+      ],
+      "visible": true
+    },
+    "toolsButton": {
+      "css": [
+        "button[data-testid='composer-plus-btn']"
+      ],
+      "visible": true
+    },
+    "errorBanner": {
+      "css": [
+        "[role='alert']",
+        "div[class*='text-token-text-error']"
+      ],
+      "visible": true
+    },
+    "challenge": {
+      "css": [
+        "iframe[src*='challenges.cloudflare.com']",
+        "iframe[src*='recaptcha']",
+        "iframe[title*='challenge']",
+        "#challenge-form"
+      ],
+      "visible": true,
+      "note": "human-verification widgets: stop and hand over to the user, never solve"
+    },
+    "composer": {
+      "css": [
+        "[data-chatgpt-composer]",
+        "form:has(#prompt-textarea)",
+        "form"
+      ],
+      "note": "data-chatgpt-composer seen on the 2026-10 UI; attachment previews appear inside (hypothesis until S6 photo check)"
+    },
+    "fileInput": {
+      "css": [
+        "input[type='file']"
+      ],
+      "note": "hidden composer file input (hypothesis)"
+    },
+    "attachmentBusy": {
+      "css": [
+        "[role='progressbar']",
+        "[aria-busy='true']"
+      ],
+      "visible": true,
+      "note": "upload in progress (hypothesis)"
+    }
+  },
+  "texts": {
+    "rateLimit": [
+      "사용량 한도",
+      "한도에 도달",
+      "You've reached",
+      "limit",
+      "Too many requests",
+      "잠시 후 다시"
+    ],
+    "blocked": [
+      "Verify you are human",
+      "사람인지 확인",
+      "unusual activity",
+      "비정상적인 활동"
+    ]
+  },
+  "forbiddenClicks": [
+    {
+      "text": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "attrText": [
+        "공유",
+        "Share",
+        "삭제",
+        "Delete",
+        "게시",
+        "Publish"
+      ],
+      "note": "never click share/delete/publish controls on AI sites"
+    }
+  ]
+}

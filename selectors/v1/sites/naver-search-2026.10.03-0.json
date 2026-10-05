@@ -1,0 +1,20 @@
+{
+  "site": "naver-search",
+  "version": "2026.10.03-0",
+  "verified": false,
+  "urls": {
+    "search": "https://search.naver.com/search.naver?ssc=tab.blog.all&query={q}&sm=tab_opt&nso=so:r,p:all"
+  },
+  "selectors": {
+    "item": { "css": ["li.bx", "div.view_wrap", "div.detail_box", "li[class*='item']"], "note": "result containers; extraction also works by URL pattern" },
+    "title": { "css": ["a.title_link", "a.api_txt_lines.total_tit", "a[class*='title']"] },
+    "snippet": { "css": [".dsc_link", ".api_txt_lines.dsc_txt", "a[class*='dsc']", "div[class*='dsc']"] },
+    "blogName": { "css": [".user_info a.name", ".sub_txt.sub_name", "a[class*='name']"] },
+    "date": { "css": [".user_info .sub", ".sub_time", "span[class*='date']"] },
+    "related": { "css": [".related_srch .keyword", ".lst_related_srch .tit", "[class*='related'] a"] }
+  },
+  "texts": {
+    "blocked": ["자동입력 방지", "비정상적인 접근", "보안 문자", "unusual traffic"],
+    "noResult": ["검색결과가 없습니다", "검색 결과가 없습니다"]
+  }
+}
