@@ -1,7 +1,7 @@
 {
   "site": "naver-cafe",
-  "version": "2026.10.04-2",
-  "verified": false,
+  "version": "2026.10.06-1",
+  "verified": true,
   "selectors": {
     "title": {
       "css": [

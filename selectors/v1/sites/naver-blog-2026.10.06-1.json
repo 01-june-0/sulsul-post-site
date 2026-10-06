@@ -1,7 +1,7 @@
 {
   "site": "naver-blog",
-  "version": "2026.10.03-1",
-  "verified": false,
+  "version": "2026.10.06-1",
+  "verified": true,
   "selectors": {
     "title": {
       "css": [".se-documentTitle .se-text-paragraph", ".se-title-text .se-text-paragraph", ".se-documentTitle [contenteditable='true']", ".se-title-text"],
