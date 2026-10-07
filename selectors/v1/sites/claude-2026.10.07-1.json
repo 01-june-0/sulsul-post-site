@@ -1,6 +1,6 @@
 {
   "site": "claude",
-  "version": "2026.10.04-2",
+  "version": "2026.10.07-1",
   "verified": true,
   "urls": {
     "newChat": "https://claude.ai/new",
@@ -33,20 +33,25 @@
         "button[aria-label='응답 중지']",
         "button[aria-label='Stop response']",
         "button[aria-label*='응답 중지']",
-        "button[aria-label*='Stop response']"
+        "button[aria-label*='Stop response']",
+        "button *",
+        "[role='status']",
+        "[role='status'] *"
+      ],
+      "text": [
+        "응답 중지",
+        "Stop response",
+        "응답 중입니다",
+        "생각 중입니다",
+        "is responding",
+        "is thinking"
+      ],
+      "attrText": [
+        "응답 중지",
+        "Stop response"
       ],
       "visible": true,
-      "note": "'응답 중지' shows while an answer is being written (AX, 2026-10-04, a 70 s draft)"
-    },
-    "idle": {
-      "css": [
-        "button[aria-label='음성 모드 시작']",
-        "button[aria-label='Start voice mode']",
-        "button[aria-label='메시지 보내기']",
-        "button[aria-label='Send message']"
-      ],
-      "visible": true,
-      "note": "'음성 모드 시작' while empty, '메시지 보내기' once typed and after an answer; the send button stays during answering, so '응답 중지' is what marks it (2026-10-04)"
+      "note": "'응답 중지' shows while an answer is being written (AX, 2026-10-04). 2026-10-07: with a thinking step and the window minimized ('뒤에서') the answer looked finished after ~17 s, so the page's own status line counts too: [role=status] says 'Claude가 응답 중입니다' while answering and 'Claude가 응답을 완료했습니다' after (AX). It is updated without the page being drawn; the label text inside the button is matched as well, since a fading-in button can stay at opacity 0 in a hidden window"
     },
     "userMessage": {
       "css": [

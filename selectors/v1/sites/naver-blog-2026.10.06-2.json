@@ -1,6 +1,6 @@
 {
   "site": "naver-blog",
-  "version": "2026.10.06-1",
+  "version": "2026.10.06-2",
   "verified": true,
   "selectors": {
     "title": {
@@ -30,6 +30,21 @@
     "uploading": { "css": [".se-image-uploading", "[class*='se-uploading']", "[class*='upload_progress']"], "visible": true },
     "dialog": { "css": [".se-popup", ".se-popup-alert", "[role='dialog']", "[role='alertdialog']"], "visible": true },
     "publishLayer": { "css": ["[class*='publish_layer']", "[class*='layer_publish']"], "visible": true },
+    "publishOpen": {
+      "css": ["[class*='publish_btn_area'] button[class*='publish_btn']", "[class*='publish_btn_area'] button"],
+      "exactText": ["발행"],
+      "firstMatch": true,
+      "note": "top bar [발행]: div.publish_btn_area > div > button.publish_btn__… (2026-10-06). Opens the publish settings layer, publishes nothing. Pressed only through dom openPublishLayer's checks (PRD Q5 B); a css that matches nothing turns the layer path off"
+    },
+    "tagInput": {
+      "css": ["[class*='layer_publish'] #tag-input", "[class*='publish_layer'] #tag-input"],
+      "firstMatch": true,
+      "note": "the layer's tag field, input#tag-input[role=combobox], placeholder '태그 입력 (최대 30개)', no maxlength (S4)"
+    },
+    "tagItem": {
+      "css": ["[class*='layer_publish'] [id^='tag-item-']", "[class*='layer_publish'] [class*='tag_textarea'] [class^='tag__']"],
+      "note": "a tag in the layer after Enter: span.tag__…#tag-item-<tag> > span.text__… '#<tag>', before the field (2026-10-06)"
+    },
     "loginForm": { "css": ["#id[name='id']", "form#frmNIDLogin"] }
   },
   "texts": {
