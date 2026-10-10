@@ -1,6 +1,6 @@
 {
   "site": "chatgpt",
-  "version": "2026.10.05-1",
+  "version": "2026.10.10-1",
   "verified": true,
   "urls": {
     "newChat": "https://chatgpt.com/",
@@ -16,7 +16,7 @@
       ],
       "visible": true,
       "required": true,
-      "note": "ProseMirror contenteditable (hypothesis, verify in S6)"
+      "note": "ProseMirror contenteditable. With the 4,244-character 체험단 prompt (2026-10-10, twice) a synthetic paste was taken (handled) but left the input empty and added no attachment; insertText typed it all — so fillWays puts insertText first (AI-AUTOMATION §7.2)"
     },
     "send": {
       "css": [
@@ -202,5 +202,10 @@
       ],
       "note": "never click share/delete/publish controls on AI sites"
     }
+  ],
+  "fillWays": [
+    "insertText",
+    "paste",
+    "lines"
   ]
 }
