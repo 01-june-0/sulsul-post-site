@@ -1,6 +1,6 @@
 {
   "site": "instagram",
-  "version": "2026.10.10-1",
+  "version": "2026.10.10-2",
   "verified": true,
   "urls": {
     "home": "https://www.instagram.com/"
@@ -115,6 +115,23 @@
     "firstStep": [
       "새 게시물 만들기",
       "Create new post"
+    ],
+    "closablePrompts": [
+      "알림 설정",
+      "알림 켜기",
+      "Turn on Notifications",
+      "Turn on notifications"
+    ],
+    "checkpointPaths": [
+      "/challenge",
+      "/checkpoint",
+      "/accounts/suspended",
+      "/accounts/disabled",
+      "/accounts/login/two_factor",
+      "/auth_platform"
+    ],
+    "leavePaths": [
+      "/accounts/onetap"
     ]
   },
   "forbiddenClicks": [

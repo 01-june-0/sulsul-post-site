@@ -1,6 +1,6 @@
 {
   "site": "threads",
-  "version": "2026.10.10-1",
+  "version": "2026.10.10-2",
   "verified": true,
   "urls": {
     "home": "https://www.threads.com/"
@@ -75,6 +75,17 @@
       "나중에 하기",
       "Not Now",
       "Not now"
+    ],
+    "closablePrompts": [
+      "알림 설정",
+      "알림 켜기",
+      "Turn on Notifications",
+      "Turn on notifications"
+    ],
+    "checkpointPaths": [
+      "/challenge",
+      "/checkpoint",
+      "/accounts/suspended"
     ]
   },
   "forbiddenClicks": [
