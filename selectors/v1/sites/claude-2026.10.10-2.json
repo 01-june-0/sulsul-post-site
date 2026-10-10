@@ -1,6 +1,6 @@
 {
   "site": "claude",
-  "version": "2026.10.10-1",
+  "version": "2026.10.10-2",
   "verified": true,
   "urls": {
     "newChat": "https://claude.ai/new",
@@ -160,6 +160,12 @@
       ],
       "visible": true,
       "note": "an answer that went into an artifact panel instead of the chat (hypothesis)"
+    },
+    "idle": {
+      "css": [
+        "sulsul-matches-nothing"
+      ],
+      "note": "matches nothing on purpose, which reads the same as no idle selector (the 2026-10-07 fix took the real one out). Kept because 0.1.0 refuses a remote file without the keys it was built with, so it would never take this file (2026-10-10)"
     },
     "responseNoise": {
       "css": [
