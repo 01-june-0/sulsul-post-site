@@ -1,6 +1,6 @@
 {
   "site": "naver-search",
-  "version": "2026.10.06-1",
+  "version": "2026.10.10-1",
   "verified": true,
   "urls": {
     "search": "https://search.naver.com/search.naver?ssc=tab.blog.all&query={q}&sm=tab_opt&nso=so:r,p:all"
@@ -11,7 +11,8 @@
     "snippet": { "css": [".dsc_link", ".api_txt_lines.dsc_txt", "a[class*='dsc']", "div[class*='dsc']"] },
     "blogName": { "css": [".user_info a.name", ".sub_txt.sub_name", "a[class*='name']"] },
     "date": { "css": [".user_info .sub", ".sub_time", "span[class*='date']"] },
-    "related": { "css": [".related_srch .keyword", ".lst_related_srch .tit", "[class*='related'] a"] }
+    "related": { "css": [".related_srch .keyword", ".lst_related_srch .tit", "[class*='related'] a"] },
+    "postLink": { "css": ["a[href*='blog.naver.com']"], "note": "a blog post link: a page with any is a result page, not a block page" }
   },
   "texts": {
     "blocked": ["자동입력 방지", "비정상적인 접근", "보안 문자", "unusual traffic"],

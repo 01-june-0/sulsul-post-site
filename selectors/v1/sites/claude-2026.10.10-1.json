@@ -1,6 +1,6 @@
 {
   "site": "claude",
-  "version": "2026.10.07-1",
+  "version": "2026.10.10-1",
   "verified": true,
   "urls": {
     "newChat": "https://claude.ai/new",
@@ -160,6 +160,15 @@
       ],
       "visible": true,
       "note": "an answer that went into an artifact panel instead of the chat (hypothesis)"
+    },
+    "responseNoise": {
+      "css": [
+        "mat-icon",
+        "[class*='copy-button']",
+        "[class*='code-block-decoration']",
+        "[class*='toolbar']"
+      ],
+      "note": "page parts dropped from an answer before it is read (icons, copy buttons, code-block bars, toolbars)"
     }
   },
   "texts": {
@@ -177,6 +186,11 @@
       "사람인지 확인",
       "unusual activity",
       "비정상적인 활동"
+    ],
+    "loginUrl": [
+      "accounts.google.com",
+      "/auth/login",
+      "claude.ai/login"
     ]
   },
   "forbiddenClicks": [

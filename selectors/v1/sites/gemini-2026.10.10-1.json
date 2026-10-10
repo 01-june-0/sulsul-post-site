@@ -1,6 +1,6 @@
 {
   "site": "gemini",
-  "version": "2026.10.05-3",
+  "version": "2026.10.10-1",
   "verified": true,
   "urls": {
     "newChat": "https://gemini.google.com/app"
@@ -175,6 +175,15 @@
         ".temp-chat-button.temp-chat-on"
       ],
       "note": "the button's wrapper gem-icon-button goes from class temp-chat-entry to temp-chat-on once it is on (2026-10-05)"
+    },
+    "responseNoise": {
+      "css": [
+        "mat-icon",
+        "[class*='copy-button']",
+        "[class*='code-block-decoration']",
+        "[class*='toolbar']"
+      ],
+      "note": "page parts dropped from an answer before it is read (icons, copy buttons, code-block bars, toolbars)"
     }
   },
   "texts": {
@@ -192,6 +201,10 @@
       "비정상적인 트래픽",
       "로봇이 아닙니다",
       "I'm not a robot"
+    ],
+    "loginUrl": [
+      "accounts.google.com",
+      "/auth/login"
     ]
   },
   "forbiddenClicks": [
