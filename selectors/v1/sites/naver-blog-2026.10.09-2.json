@@ -1,6 +1,6 @@
 {
   "site": "naver-blog",
-  "version": "2026.10.06-2",
+  "version": "2026.10.09-2",
   "verified": true,
   "selectors": {
     "title": {
@@ -25,6 +25,46 @@
       "css": ["iframe[id^='input_buffer']", "iframe[title*='스마트 에디터']"],
       "firstMatch": true,
       "note": "hidden 1px iframe that follows the caret and receives all typing/paste (S1/S3 2026-10-03); the canvas itself is not contenteditable"
+    },
+    "imageCaption": {
+      "css": [".se-caption .se-text-paragraph", ".se-section-image .se-module-text .se-text-paragraph"],
+      "firstMatch": true,
+      "note": "the 설명 칸 under a picture, searched inside one image block: div.se-section-image > div.se-module-text > p.se-text-paragraph with the hint '사진 설명을 입력하세요.' (2026-10-09). Hidden (0x0) until the picture is selected; a click on it moves the input frame there and a paste fills it"
+    },
+    "imageLinkOpen": {
+      "css": ["button.se-link-toolbar-button", "[data-name='image-link']"],
+      "visible": true,
+      "firstMatch": true,
+      "note": "the picture's '링크 입력 열기' in the property toolbar once a picture is selected (2026-10-09); not the document's '링크 추가' (se-oglink-toolbar-button). Carries se-is-has-value when the picture has a link"
+    },
+    "imageLinkSet": {
+      "css": ["button.se-link-toolbar-button.se-is-has-value"],
+      "visible": true,
+      "note": "the selected picture already has a link (2026-10-09)"
+    },
+    "imageSelected": {
+      "css": [".se-image-edit-toolbar-button", ".se-toolbar-item-image-edit"],
+      "note": "searched inside one image block: the small toolbar (편집·배치·삭제) a selected picture shows (2026-10-09). Not se-is-selected, which the 대표 button carries too"
+    },
+    "repImage": {
+      "css": ["button.se-set-rep-image-button"],
+      "note": "searched inside one image block: its '대표' control; the editor puts 대표 on the first picture by itself (2026-10-09)"
+    },
+    "repImageOn": {
+      "css": ["button.se-set-rep-image-button.se-is-selected"],
+      "note": "searched inside one image block: this picture is the post's 대표 (2026-10-09)"
+    },
+    "imageLinkInput": {
+      "css": ["input.se-custom-layer-link-input"],
+      "visible": true,
+      "firstMatch": true,
+      "note": "input[type=url] 'URL을 입력하세요.' in div.se-custom-layer-option-link (2026-10-09)"
+    },
+    "imageLinkApply": {
+      "css": ["button.se-custom-layer-link-apply-button"],
+      "visible": true,
+      "firstMatch": true,
+      "note": "'링크 입력' next to the field; the link is kept in the editor's data, not as an <a> in the canvas (2026-10-09)"
     },
     "placeholder": { "css": [".se-placeholder", "[class*='placeholder']"] },
     "uploading": { "css": [".se-image-uploading", "[class*='se-uploading']", "[class*='upload_progress']"], "visible": true },
