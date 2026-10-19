@@ -1,6 +1,6 @@
 {
   "site": "naver-blog",
-  "version": "2026.10.09-2",
+  "version": "2026.10.15-1",
   "verified": true,
   "selectors": {
     "title": {
@@ -75,6 +75,12 @@
       "exactText": ["발행"],
       "firstMatch": true,
       "note": "top bar [발행]: div.publish_btn_area > div > button.publish_btn__… (2026-10-06). Opens the publish settings layer, publishes nothing. Pressed only through dom openPublishLayer's checks (PRD Q5 B); a css that matches nothing turns the layer path off"
+    },
+    "saveButton": {
+      "css": ["[class*='save_btn_area'] button[class*='save_btn']", "[class*='save_btn_area'] button"],
+      "exactText": ["저장"],
+      "firstMatch": true,
+      "note": "top bar [저장] (draft save, publishes nothing): div.save_btn_area__… > button.save_btn__… > span.text__… '저장', next to button.save_count_btn__… '<n>' (dry run on the real screen 2026-10-15; exactText, not text: text skips a button whose span child says it too). Pressed only through dom pressSaveDraft's checks (PRD D17); a css that matches nothing turns the save off"
     },
     "tagInput": {
       "css": ["[class*='layer_publish'] #tag-input", "[class*='publish_layer'] #tag-input"],

@@ -1,6 +1,6 @@
 {
   "site": "chatgpt",
-  "version": "2026.10.10-2",
+  "version": "2026.10.19-1",
   "verified": true,
   "urls": {
     "newChat": "https://chatgpt.com/",
@@ -164,6 +164,14 @@
       ],
       "visible": true,
       "note": "upload in progress (hypothesis)"
+    },
+    "choiceGate": {
+      "text": [
+        "어느 이미지가 더 마음에 드세요",
+        "Which image do you prefer"
+      ],
+      "visible": true,
+      "note": "ChatGPT's own comparison of two pictures for one prompt, with [1번 이미지 선택]·[2번 이미지 선택]·[건너뛰기] (a user's screenshot 2026-10-19; DOM not measured, the English text is a guess). The panel takes picture 1 from the nearest box with two pictures around this question and presses nothing"
     },
     "responseNoise": {
       "css": [
